@@ -34,8 +34,8 @@ jobs:
         id: lint
         uses: docker://quay.io/helmpack/chart-testing:v3.0.0-beta.1
         with:
-          entrypoint: pwd
-          #args: lint --all --debug
+          entrypoint: ct
+          args: lint --all --debug
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0-alpha.3
