@@ -34,8 +34,21 @@ jobs:
         id: lint
         uses: docker://quay.io/helmpack/chart-testing:v3.0.0-beta.1
         with:
-          entrypoint: ct
-          args: lint --debug
+          entrypoint: sh -c
+          args: |
+            echo "Running `ct list-changed`..."
+            
+            changed=$(ct list-changed)
+            
+            if [ -z "$changed" ]; then
+              echo "No chart changes detected."
+              echo "::set-output name=changed::false"
+            else
+              echo "Detected chart changes."
+              echo "::set-output name=changed::true"
+            fi
+            
+            ct lint --debug
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0-alpha.3
