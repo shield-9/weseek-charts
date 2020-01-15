@@ -3,6 +3,15 @@ entries:
   growi:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2020-01-15T08:21:29.812559069Z"
+    description: GROWI Helm chart for Kubernetes
+    digest: e46e93c54288aa3de13bc595c05bddd67ca95a8806d3f794cb9f445e5c7c40f8
+    name: growi
+    urls:
+    - https://github.com/shield-9/helm-charts-1/releases/download/growi-0.2.3/growi-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2020-01-15T08:20:07.703369543Z"
     description: GROWI Helm chart for Kubernetes
     digest: 1ba906f6b8c50c7093c5f038edf463fc08820bb39c460af29a7a015ae4ee1b34
