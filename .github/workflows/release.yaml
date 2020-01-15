@@ -38,7 +38,7 @@ jobs:
           args: |
             -c "\
               echo 'Running `ct list-changed`...'; \
-              changed=$(ct list-changed); \
+              changed=$(ct list-changed --debug); \
               if [ -z \"$changed\" ]; then \
                 echo 'No chart changes detected.'; \
                 echo '::set-output name=changed::false'; \
