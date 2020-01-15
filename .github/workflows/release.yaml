@@ -32,9 +32,10 @@ jobs:
 
       - name: Run chart-testing (lint)
         id: lint
-        uses: helm/chart-testing-action@v1.0.0-alpha.3
+        uses: docker://quay.io/helmpack/chart-testing:v3.0.0-beta.1
         with:
-          command: lint
+          entrypoint: ls
+          #args: lint --all --debug
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0-alpha.3
