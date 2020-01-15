@@ -54,20 +54,22 @@ jobs:
         with:
           entrypoint: ct
           args: lint --debug
+        if: steps.list-changed.outputs.changed == 'true'
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0-alpha.3
         with:
           installLocalPathProvisioner: true
-        if: steps.lint.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-testing (install)
         uses: helm/chart-testing-action@v1.0.0-alpha.3
         with:
           command: install
-        if: steps.lint.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.0.0-alpha.2
         env:
           CR_TOKEN: "${{ secrets.CR_TOKEN }}"
+        if: steps.list-changed.outputs.changed == 'true'
