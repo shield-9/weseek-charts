@@ -1,0 +1,348 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "Values",
+    "required": [
+        "fileUpload",
+        "extraEnv",
+        "strategy",
+        "resources",
+        "podAnnotations",
+        "podLabels",
+        "nodeSelector",
+        "tolerations",
+        "affinity",
+        "mongodb",
+        "elasticsearch"
+    ],
+    "properties": {
+        "replicaCount": {
+            "type": "integer",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 1
+        },
+        "image": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "repository": {
+                    "type": "string",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "weseek/growi"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "3.6.3"
+                },
+                "pullPolicy": {
+                    "type": "string",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "IfNotPresent"
+                }
+            }
+        },
+        "service": {
+            "type": "object",
+            "title": "The service schema",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "ClusterIP"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 80
+                }
+            }
+        },
+        "ingress": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": false
+                },
+                "annotations": {
+                    "type": "object",
+                    "description": "An explanation about the purpose of this instance.",
+                    "examples": [
+                        {
+                            "kubernetes.io/ingress.class": "nginx",
+                            "kubernetes.io/tls-acme": "true"
+                        }
+                    ],
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "hosts": {
+                    "type": "array",
+                    "description": "An explanation about the purpose of this instance.",
+                    "items": {
+                        "type": "object",
+                        "description": "An explanation about the purpose of this instance.",
+                        "required": [
+                            "host",
+                            "paths"
+                        ],
+                        "properties": {
+                            "host": {
+                                "type": "string",
+                                "description": "An explanation about the purpose of this instance.",
+                                "examples": [
+                                    "chart-example.local"
+                                ]
+                            },
+                            "paths": {
+                                "type": "array",
+                                "description": "An explanation about the purpose of this instance.",
+                                "examples": [
+                                    [
+                                        "/testpath"
+                                    ]
+                                ],
+                                "minItems": 1,
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tls": {
+                    "type": "array",
+                    "description": "An explanation about the purpose of this instance.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "secretName": {
+                                "type": "string",
+                                "examples": [
+                                    "chart-example-tls"
+                                ]
+                            },
+                            "hosts": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "examples": [
+                                        "chart-example.local"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "fileUpload": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "An explanation about the purpose of this instance.",
+                    "enum": [
+                        "local",
+                        "aws",
+                        "gcs",
+                        "mongodb",
+                        "none"
+                    ]
+                },
+                "local": {
+                    "type": "object",
+                    "description": "An explanation about the purpose of this instance.",
+                    "required": [
+                        "accessModes"
+                    ],
+                    "properties": {
+                        "annotations": {
+                            "type": "object",
+                            "description": "An explanation about the purpose of this instance.",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "accessModes": {
+                            "type": "array",
+                            "description": "An explanation about the purpose of this instance.",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ReadWriteOnce",
+                                    "ReadOnlyMany",
+                                    "ReadWriteMany"
+                                ]
+                            }
+                        },
+                        "size": {
+                            "type": "string",
+                            "description": "",
+                            "default": "5Gi"
+                        },
+                        "storageClass": {
+                            "type": "string",
+                            "description": ""
+                        }
+                    }
+                }
+            }
+        },
+        "extraEnv": {
+            "type": "array",
+            "description": "An explanation about the purpose of this instance.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "strategy": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "RollingUpdate",
+                        "Recreate"
+                    ]
+                },
+                "rollingUpdate": {
+                    "type": "object",
+                    "properties": {
+                        "maxSurge": {
+                            "type": "integer"
+                        },
+                        "maxUnavailable": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "resources": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "limits": {
+                    "type": "object",
+                    "examples": [
+                        {
+                            "cpu": "100m",
+                            "memory": "128Mi"
+                        }
+                    ],
+                    "additionalProperties": true
+                },
+                "requests": {
+                    "type": "object",
+                    "examples": [
+                        {
+                            "cpu": "100m",
+                            "memory": "128Mi"
+                        }
+                    ],
+                    "additionalProperties": true
+                }
+            }
+        },
+        "podAnnotations": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "podLabels": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "nodeSelector": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "tolerations": {
+            "type": "array",
+            "description": "An explanation about the purpose of this instance.",
+            "items": {
+                "type": "object",
+                "required": [
+                    "key",
+                    "operator",
+                    "effect"
+                ],
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "operator": {
+                        "type": "string",
+                        "enum": [
+                            "Equal",
+                            "Exists"
+                        ]
+                    },
+                    "value": {
+                        "type": "string"
+                    },
+                    "effect": {
+                        "type": "string"
+                    },
+                    "tolerationSeconds": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "affinity": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "additionalProperties": true
+        },
+        "mongodb": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "An explanation about the purpose of this instance."
+                }
+            },
+            "additionalProperties": true
+        },
+        "elasticsearch": {
+            "type": "object",
+            "description": "An explanation about the purpose of this instance.",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "An explanation about the purpose of this instance."
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}
