@@ -3,24 +3,18 @@ entries:
   growi:
   - apiVersion: v2
     appVersion: 4.1.8
-    created: "2020-10-09T09:05:20.663086645Z"
+    created: "2020-10-25T15:43:05.673336865Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
       repository: https://charts.bitnami.com/bitnami
       version: 9.2.2
-    - alias: elasticsearch-master
-      condition: elasticsearch.enabled
-      name: elasticsearch
-      repository: https://helm.elastic.co/
-      version: 7.9.2
-    - alias: elasticsearch-data
-      condition: elasticsearch.enabled
+    - condition: elasticsearch.enabled
       name: elasticsearch
       repository: https://helm.elastic.co/
       version: 7.9.2
     description: GROWI Helm chart for Kubernetes
-    digest: 0594cada9dc12ef641e06c9b74a66aa563862c6a37e76006d625bfce80800dbe
+    digest: 5e2d6eaf27f10ad9794ad6b8f7742779ca68a8bb8b97baa9324e895ccdf00949
     home: https://growi.org
     icon: https://user-images.githubusercontent.com/1638767/38254268-d4476bbe-3793-11e8-964c-8865d690baff.png
     maintainers:
@@ -33,4 +27,4 @@ entries:
     urls:
     - growi-0.1.1.tgz
     version: 0.1.1
-generated: "2020-10-09T09:05:20.655716869Z"
+generated: "2020-10-25T15:43:05.664565912Z"
