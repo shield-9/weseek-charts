@@ -10,7 +10,7 @@ sources:
 - https://github.com/weseek/growi
 dependencies:
 - name: mongodb
-  version: 7.10.12
+  version: 9.2.2
   repository: https://charts.bitnami.com/bitnami
   condition: mongodb.enabled
 - name: elasticsearch

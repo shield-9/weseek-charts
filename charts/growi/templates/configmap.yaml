@@ -4,7 +4,7 @@ metadata:
   name: {{ template "growi.fullname" . }}
 data:
   {{- if .Values.mongodb.enabled }}
-  MONGO_URI: {{ printf "mongodb://%s-mongodb:27017/%s" .Release.Name (include "growi.name" .) }}
+  MONGO_URI: {{ printf "mongodb://%s-mongodb-headless:27017/%s" .Release.Name (include "growi.name" .) }}
   {{- else }}
   MONGO_URI: {{ .Values.mongodb.uri }}
   {{- end }}
