@@ -3,7 +3,7 @@ entries:
   growi:
   - apiVersion: v2
     appVersion: 4.2.2
-    created: "2020-12-07T10:28:04.183741796Z"
+    created: "2020-12-07T10:36:44.001718922Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -14,7 +14,7 @@ entries:
       repository: https://helm.elastic.co/
       version: 7.9.2
     description: GROWI Helm chart for Kubernetes
-    digest: 3e008bdf49fbb2f06de0771f2ea40a78487d390f6ccbe736555e651321e21bc1
+    digest: f89d1a3302537383477ed42706098e8e400d2b04e1bae6fb1862bd90394ba0f0
     home: https://growi.org
     icon: https://user-images.githubusercontent.com/1638767/38254268-d4476bbe-3793-11e8-964c-8865d690baff.png
     maintainers:
@@ -29,7 +29,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 4.1.9
-    created: "2020-12-07T10:28:04.175233735Z"
+    created: "2020-12-07T10:36:43.995989033Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -55,7 +55,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 4.2.2
-    created: "2020-12-07T10:28:04.167871583Z"
+    created: "2020-12-07T10:36:43.988484048Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -81,7 +81,7 @@ entries:
     version: 0.1.2-RC
   - apiVersion: v2
     appVersion: 4.1.8
-    created: "2020-12-07T10:28:04.158794018Z"
+    created: "2020-12-07T10:36:43.98223216Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -105,4 +105,4 @@ entries:
     urls:
     - growi-0.1.1.tgz
     version: 0.1.1
-generated: "2020-12-07T10:28:04.151002662Z"
+generated: "2020-12-07T10:36:43.975670472Z"
