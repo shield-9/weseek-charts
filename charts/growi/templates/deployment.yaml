@@ -37,12 +37,12 @@ spec:
             protocol: TCP
           livenessProbe:
             httpGet:
-              path: /_api/v3/healthcheck?connectToMiddlewares
+              path: /_api/v3/healthcheck?checkServices[]=mongo&checkServices[]=search
               port: http
             initialDelaySeconds: 10
           readinessProbe:
             httpGet:
-              path: /_api/v3/healthcheck?connectToMiddlewares
+              path: /_api/v3/healthcheck?checkServices[]=mongo&checkServices[]=search
               port: http
             initialDelaySeconds: 10
           envFrom:
