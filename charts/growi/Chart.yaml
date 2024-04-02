@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: 6.0.2
+appVersion: 6.3.2
 description: GROWI Helm chart for Kubernetes
 name: growi
-version: 0.1.8
+version: 0.1.9
 type: application
 home: https://growi.org
 icon: https://user-images.githubusercontent.com/1638767/38254268-d4476bbe-3793-11e8-964c-8865d690baff.png
@@ -10,7 +10,7 @@ sources:
 - https://github.com/weseek/growi
 dependencies:
 - name: mongodb
-  version: 13.6.4
+  version: 15.1.1
   repository: https://charts.bitnami.com/bitnami
   condition: mongodb.enabled
 - name: elasticsearch
