@@ -3,7 +3,33 @@ entries:
   growi:
   - apiVersion: v2
     appVersion: 6.3.2
-    created: "2024-04-02T07:12:24.571403934Z"
+    created: "2024-04-02T09:39:26.020588954Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.1.1
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://helm.elastic.co/
+      version: 8.5.1
+    description: GROWI Helm chart for Kubernetes
+    digest: bffed6065639bd0a5badba3eed4f7fa2458b885b4a8bbe94ab57284099579cee
+    home: https://growi.org
+    icon: https://user-images.githubusercontent.com/1638767/38254268-d4476bbe-3793-11e8-964c-8865d690baff.png
+    maintainers:
+    - email: info@weseek.co.jp
+      name: WESEEK
+    name: growi
+    sources:
+    - https://github.com/weseek/growi
+    type: application
+    urls:
+    - growi-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 6.3.2
+    created: "2024-04-02T09:39:26.064443217Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -29,7 +55,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 6.0.2
-    created: "2024-04-02T07:12:24.56366011Z"
+    created: "2024-04-02T09:39:26.056718951Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -55,7 +81,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 4.5.8
-    created: "2024-04-02T07:12:24.556672232Z"
+    created: "2024-04-02T09:39:26.050807741Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -81,7 +107,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 4.5.8
-    created: "2024-04-02T07:12:24.551466548Z"
+    created: "2024-04-02T09:39:26.044348673Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -107,7 +133,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 4.2.20
-    created: "2024-04-02T07:12:24.545268255Z"
+    created: "2024-04-02T09:39:26.038957629Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -133,7 +159,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 4.2.2
-    created: "2024-04-02T07:12:24.541484402Z"
+    created: "2024-04-02T09:39:26.034421885Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -159,7 +185,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 4.1.9
-    created: "2024-04-02T07:12:24.536628408Z"
+    created: "2024-04-02T09:39:26.030450106Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -185,7 +211,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 4.2.2
-    created: "2024-04-02T07:12:24.532773352Z"
+    created: "2024-04-02T09:39:26.024381757Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -211,7 +237,7 @@ entries:
     version: 0.1.2-RC
   - apiVersion: v2
     appVersion: 4.1.8
-    created: "2024-04-02T07:12:24.528227317Z"
+    created: "2024-04-02T09:39:26.012872723Z"
     dependencies:
     - condition: mongodb.enabled
       name: mongodb
@@ -235,4 +261,4 @@ entries:
     urls:
     - growi-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-02T07:12:24.523928344Z"
+generated: "2024-04-02T09:39:26.008424042Z"
